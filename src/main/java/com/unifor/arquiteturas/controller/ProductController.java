@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping("/productsByCategory/{categoryId}")
-    public ResponseEntity<List<Product>> getProductsByCategory(Long categoryId){
-        return ResponseEntity.ok(productInterface.getProductsByCategory(categoryId));
+    public ResponseEntity<List<Product>> getProductsByCategoryId(Long categoryId){
+        return ResponseEntity.ok(productInterface.getProductsByCategoryId(categoryId));
     }
 }

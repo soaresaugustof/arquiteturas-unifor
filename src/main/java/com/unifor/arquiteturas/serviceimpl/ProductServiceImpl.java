@@ -33,9 +33,12 @@ public class ProductServiceImpl implements ProductInterface {
     }
 
     @Override
-    public List<Product> getProductsByCategory(Long categoryId) {
+    public List<Product> getProductsByCategoryId(Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
-        return repository.findByCategory(category);
+                .orElse(null);
+        if (category != null) {
+            return repository.findByCategory(category);
+        }
+        return null;
     }
 }
